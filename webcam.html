@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Fullscreen Stream (Mirrored)</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scaleX(-1); /* This flips the video horizontally */
+        }
+    </style>
+</head>
+<body>
+
+    <video id="webcam" autoplay></video>
+
+    <script>
+        const video = document.getElementById('webcam');
+
+        // Request access to the webcam with the highest possible resolution
+        navigator.mediaDevices.getUserMedia({
+            video: {
+                width: { ideal: 4096 },
+                height: { ideal: 2160 }
+            }
+        })
+        .then(stream => {
+            video.srcObject = stream;
+        })
+        .catch(error => {
+            console.error('Error accessing webcam:', error);
+        });
+
+        // Make the video element full screen
+        video.addEventListener('loadedmetadata', () => {
+            video.requestFullscreen();
+        });
+    </script>
+
+</body>
+</html>
