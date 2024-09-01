@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NekoSite Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+        }
+        .login-container h1 {
+            font-size: 2.5em;
+            color: #444;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        .login-container button {
+            width: 100%;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            padding: 12px 0;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .login-container .error-message {
+            color: red;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-container">
+            <h1>NekoSite</h1>
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button onclick="checkCredentials()">Login</button>
+            <p id="error-message" class="error-message">Incorrect username or password. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        function checkCredentials() {
+            const enteredUsername = document.getElementById('username').value;
+            const enteredPassword = document.getElementById('password').value;
+            const correctUsername = 'nourin'; // Replace with the correct username
+            const correctPasswordHash = 'ab5c59087e301ac08bccbbada6c5ce324a8a60ca87d64ecb51ae9a5712216437'; // Hash for 'password'
+
+            const hashedPassword = CryptoJS.SHA256(enteredPassword).toString();
+
+            if (enteredUsername === correctUsername && hashedPassword === correctPasswordHash) {
+                localStorage.setItem('isLoggedIn', 'true'); // Set the login status in localStorage
+                window.location.href = 'index.html'; // Redirect to the main page
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

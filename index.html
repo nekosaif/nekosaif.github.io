@@ -8,19 +8,24 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            background: url('background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
         }
         .hero {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 50px;
             text-align: center;
+            max-width: 400px;
+            margin: auto;
         }
         .hero h1 {
             font-size: 2.5em;
             color: #444;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            font-weight: bold;
         }
         .hero a {
             font-size: 1.2em;
@@ -45,5 +50,11 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Check if the user is logged in
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html'; // Redirect to login page if not logged in
+        }
+    </script>
 </body>
 </html>
