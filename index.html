@@ -38,9 +38,27 @@
             text-decoration: underline;
             transform: scale(1.05);
         }
+        .logout-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 <body>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="hero">
             <h1>NekoSite</h1>
@@ -55,6 +73,12 @@
         // Check if the user is logged in
         if (localStorage.getItem('isLoggedIn') !== 'true') {
             window.location.href = 'login.html'; // Redirect to login page if not logged in
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
         }
     </script>
 </body>
