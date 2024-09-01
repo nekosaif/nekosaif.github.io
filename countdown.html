@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to Pookie's Birthday</title>
+    <style>
+        body {
+            background: url('background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .outer-container {
+            background: rgba(255, 248, 209, 0.55);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .countdown-container {
+            width: 320px;
+            color: rgb(212, 104, 255);
+            margin-bottom: 20px;
+        }
+        .nourin-image {
+            width: 100%;
+            height: 320px;
+            background: url('nourin.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .countdown-text {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-left: 5px;
+        }
+        .additional-text {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outer-container">
+        <div class="countdown-container">
+            <div class="nourin-image"></div>
+            <div class="countdown-text" id="countdown"></div>
+            <h1>Until Pookie's Birthday <span class="emoji">🎉</span></h1>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Sep 6, 2024 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var countdownFunction = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Happy Birthday Pookie!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
