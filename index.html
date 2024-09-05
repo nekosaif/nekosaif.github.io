@@ -66,7 +66,7 @@
             <h1>NekoSite</h1>
             <h2><a href="webcam.html">Local Webcam</a></h2>
             <h2><a href="countdown.html">Birthday Countdown</a></h2>
-            <h2><a href="gift.html">Birthday Gift</a></h2>
+            <h2 id="giftLink" style="display: none;"><a href="gift.html">Birthday Gift</a></h2>
         </div>
     </div>
 
@@ -83,6 +83,16 @@
             localStorage.removeItem('isLoggedIn');
             window.location.href = 'login.html';
         }
+        const showDate = new Date('2024-09-06T00:00:00'); // 6th September 2024
+
+        // Get the current date
+        const currentDate = new Date();
+
+        // Check if the current date is on or after the showDate
+        if (currentDate >= showDate) {
+            document.getElementById("giftLink").style.display = "block";
+        }
+
     </script>
 
 
