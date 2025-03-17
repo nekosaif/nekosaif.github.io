@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mollah Md Saif - CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: #1f2937;
+            background-color: #f3f4f6;
+        }
+
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-link:hover {
+            color: #4b5563;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-title {
+            font-weight: bold;
+        }
+
+        .company-name {
+            font-style: italic;
+        }
+
+        .date-location {
+            text-align: right;
+            font-style: italic;
+        }
+
+        ul {
+            list-style-position: inside;
+            padding-left: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        li {
+            margin-bottom: 0.25rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .skill-category h3 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 2rem;
+        }
+
+        .download-floating {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+        }
+
+        .download-floating:hover {
+            background-color: #2563eb;
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+        }
+
+        .download-floating:hover::after {
+            content: "Download CV";
+            position: absolute;
+            top: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1f2937;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .download-floating i {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .home-floating {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+        }
+
+        .home-floating:hover {
+            background-color: #2563eb;
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+        }
+
+        .home-floating:hover::after {
+            content: "Home";
+            position: absolute;
+            top: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1f2937;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .home-floating i {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-flex {
+                flex-direction: column;
+            }
+
+            .date-location {
+                text-align: left;
+                margin-top: 0.5rem;
+            }
+
+            .download-floating {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Mollah Md Saif</h1>
+            <p class="subtitle">Embedded Software Engineer @ Sa.Ni.Corporate Srl</p>
+            
+            <div class="contact-links">
+                <a href="#" class="contact-link">
+                    <i data-lucide="map-pin"></i>
+                    Dhaka, Bangladesh
+                </a>
+                <a href="mailto:mollahmdsaif@gmail.com" class="contact-link">
+                    <i data-lucide="mail"></i>
+                    mollahmdsaif@gmail.com
+                </a>
+                <a href="tel:+880-1920-545913" class="contact-link">
+                    <i data-lucide="phone"></i>
+                    +880-1920-545913
+                </a>
+                <a href="https://linkedin.com/in/nekosaif" class="contact-link">
+                    <i data-lucide="linkedin"></i>
+                    nekosaif
+                </a>
+                <a href="https://github.com/nekosaif" class="contact-link">
+                    <i data-lucide="github"></i>
+                    nekosaif
+                </a>
+            </div>
+        </header>
+
+        <!-- Summary Section -->
+        <section>
+            <p class="text-justify">
+                Currently working as an Embedded Software Engineer specializing medical device development. At Sa.Ni. Corporate Srl, Italy, I focus on creating innovative software and hardware solutions for medical baropodometry devices, enhancing diagnostic precision and user experience. My expertise extends to developing automation tools for Windows environments and optimizing operational workflows. I specialize in developing predictive analytics and financial simulation models, utilizing machine learning and statistical analysis to gain data-driven insights. With a Bachelor of Science in Computer Science, I bring a strong foundation in Artificial Intelligence, Machine Vision, and Autonomous Systems. My experience includes an internship in AI at Genofax, where I implemented healthcare solutions. My technical portfolio showcases diverse projects in space and robotics, including autonomous navigation systems, Computer Vision modules for Mars Rovers, and CubeSat development.
+            </p>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <div class="header-flex">
+                <div>
+                    <h3 class="role-title">BRAC University</h3>
+                    <p class="company-name">BS in Computer Science</p>
+                </div>
+                <p class="date-location">Jan 2020 – Sep 2024</p>
+            </div>
+            <ul>
+                <li>GPA: 3.65/4.0</li>
+                <li>Research: Robotics, Autonomous System, System Automation, IOT, Space Science</li>
+            </ul>
+            <div class="header-flex">
+                <div>
+                    <h3 class="role-title">Notre Dame College</h3>
+                    <p class="company-name">High School Diploma, Science</p>
+                </div>
+                <p class="date-location">2017 – 2019</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section>
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Embedded Systems and Software Engineer</h3>
+                        <p class="company-name">Sa.Ni.Corporate Srl</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Rome, Italy</p>
+                        <p>Jul 2024 – Mar 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developing hardware and software solutions for medical baropodometry devices, focusing on improving user experience and advancing diagnostic precision.</li>
+                    <li>Designed native Windows program automation tools to streamline processes and increase efficiency.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Artificial Intelligence Intern</h3>
+                        <p class="company-name">Genofax®</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Jul 2023 – Jan 2024</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Learning and implementing Artificial Intelligence Models in healthcare systems.</li>
+                    <li>Research on personalized healthcare, focusing on genetics, epigenetics, human nutrition, and microbiome-derived diagnosis.</li>
+                    <li>Developing AI-enabled bioinformatics pipeline for taxonomic classification and profiling of Bacteria.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Team Lead</h3>
+                        <p class="company-name">BRACU Mongol Tori</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Jul 2022 – Jun 2023</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Setting Goals and Objectives and Monitoring progress and performance.</li>
+                    <li>Conducting regular performance evaluations and delivering constructive feedback to team members to support their growth and development.</li>
+                    <li>Providing guidance and direction to team members.</li>
+                    <li>Worked with Power System Design, made PCB with Autodesk Eagle, and implemented RTK-based mapping system in the WebUI.</li>
+                    <li>Designed, Implemented, and Optimized Control System of Rover with C++, Python, and ROS.</li>
+                    <li>Made a ROS based Communication and Control system from scratch, implemented Inverse Kinematics in 6-dof arm of Rover, and built Autonomous Science Module.</li>
+                    <li>Researched and Learned Control Systems of Rover, and studied the feasibility of ROS in Mars Rover System.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Student Instructor</h3>
+                        <p class="company-name">BRAC University Computer Club</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Nov 2021 – Apr 2022</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Taking supplementary online classes on fundamental and intermediate programming courses.</li>
+                    <li>Provided assistance to learners by resolving their queries through online learning platforms.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section>
+            <h2>Publications</h2>
+            <div class="experience-item">
+                <h3 class="role-title">Autonomous Navigation in Crowded Spaces Using Multi-Sensory Data Fusion</h3>
+                <p class="company-name">Submitted to: 2025 IEEE International Conference on Robotics & Automation</p>
+                <p class="company-name">Status: Accepted (To be presented in May 2025)</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Multi-Agent Pathfinder for Optimal Path Selection of Multiple Fog Robot</h3>
+                    <p class="date-location">Nov 2023 - Mar 2024</p>
+                </div>
+                <ul>
+                    <li>Developed a cost-effective multi-robot path planning system, "Multi-Agent Pathfinder," designed for efficient navigation and collision avoidance in dynamic environments.</li>
+                    <li>Utilized Fog Robotics to offload computationally intensive tasks to a centralized server, reducing hardware complexity and cost for individual service robots.</li>
+                    <li>Integrated YOLOv8 for real-time obstacle detection and AR tags for accurate robot localization.</li>
+                    <li>Combined traditional algorithms, like a modified Conflict-Based Search (CBS), with reinforcement learning approaches to optimize pathfinding for multiple robots operating simultaneously.</li>
+                    <li>Led the research, design, and implementation of the multi-robot path planning system.</li>
+                    <li>Configured hardware components, programmed ESP32 microcontrollers, and established reliable robot-server communication.</li>
+                    <li>Conducted simulations and real-world experiments, analyzed system performance, and addressed limitations.</li>
+                    <li>Documented project progress and findings, and prepared comprehensive technical reports.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">BIRDS-X Automatic Packet Reporting System (APRS) Payload Design</h3>
+                    <p class="date-location">Dec 2022 - Dec 2023</p>
+                </div>
+                <ul>
+                    <li>Developed an APRS payload for a 2U CubeSat to enhance amateur radio communication by enabling APRS digipeating and store-and-forward capabilities.</li>
+                    <li>Conducted comprehensive research and feasibility studies on payload components to ensure optimal performance and compliance with CubeSat standards.</li>
+                    <li>Authored and submitted detailed technical documentation, including system block diagrams, bills of materials, link budgets, and test reports.</li>
+                    <li>Collaborated with cross-functional team members to ensure adherence to safety regulations and interface control documents.</li>
+                    <li>Developed and rigorously tested breadboard and engineering models of the payload.</li>
+                    <li>Secured an Amateur Radio license to facilitate communication and testing of the APRS payload.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Eshon-Sat</h3>
+                    <p class="date-location">Mar 2022 - Nov 2022</p>
+                </div>
+                <ul>
+                    <li>Developed and programmed the On-Board Compute (OBC) module for the CubeSat, ensuring efficient processing and reliability.</li>
+                    <li>Researched and experimented with various communication protocols and architectures to determine the most suitable options for a 1U CubeSat.</li>
+                    <li>Designed and implemented an optimized flash memory firmware to improve storage efficiency and extend memory lifespan.</li>
+                    <li>Conducted rigorous testing and validation of the OBC module and communication systems to ensure operational stability.</li>
+                    <li>Collaborated with cross-functional teams to integrate the OBC with other satellite subsystems.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Indigenous 2U CubeSat Payload for Onboard Image Classification</h3>
+                    <p class="date-location">Jul 2022 - Oct 2022</p>
+                </div>
+                <ul>
+                    <li>Designed a microcontroller-based architecture to support embedded deep learning models for a 2U CubeSat.</li>
+                    <li>Researched, selected, and integrated a suitable industrial camera system for high-quality image capture and processing.</li>
+                    <li>Conducted in-depth analysis of multispectral cameras to evaluate their suitability for machine learning and remote sensing applications.</li>
+                    <li>Developed and deployed optimized deep learning models for on-board image classification.</li>
+                    <li>Tested and validated the performance of the integrated system in simulated space conditions, ensuring reliability and efficiency.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Multi-Agent Pathfinder for Optimal Path of Multiple Fog Robot</h3>
+                    <p class="date-location">Aug 2023 - Jan 2022</p>
+                </div>
+                <ul>
+                    <li>Developed algorithms for efficient path generation, collision avoidance, and dynamic obstacle handling</li>
+                    <li>Integrated YOLOv8 for object detection and AR tags for robot localization</li>
+                    <li>Explored reinforcement learning for adaptive navigation</li>
+                    <li>Configured hardware, programmed microcontrollers, and established communication</li>
+                </ul>
+            </div>
+
+            <!-- Add other project items similarly -->
+            <!-- ... Rest of the project items ... -->
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>Python, C/C++, Java, R, Bash, PowerShell, R Programming</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Programming</h3>
+                    <p>HTML5, CSS, XML, MySQL, PHP, Jinja, Web Scraping</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Other Languages</h3>
+                    <p>Mathematica, LaTeX, Assembly, Verilog</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <p>PyQt, Processing, PyTorch, Keras, Flask</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Libraries</h3>
+                    <p>NumPy, Pandas, scikit-learn, Matplotlib, seaborn, TensorFlow, scikit-bio, Folium, Foursquare</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Software Tools</h3>
+                    <p>Git, Docker, Jupyter, Proteus, Gazebo, Eagle, Altera Quartus, Microwind, emu8086, LTSpice</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming Applications</h3>
+                    <p>ROS, CI/CD, API, Arduino, FreeRTOS, Chocolatey</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Linux Distros</h3>
+                    <p>Ubuntu, Raspbian, Linux4Tegra</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language Skills Section -->
+        <section>
+            <h2>Language Skills and Proficiency</h2>
+            <ul>
+                <li><span class="role-title">English:</span> Professional proficiency</li>
+                <li><span class="role-title">Bangla:</span> Native or bilingual proficiency</li>
+            </ul>
+        </section>
+
+        <!-- Certificates Section -->
+        <section>
+            <h2>Certificate & Training</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Python 3 Programming Specialization</h3>
+                    <p class="company-name">Issued by: Michigan Online, Coursera (2020)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Java Programming and Software Engineering Fundamentals Specialization</h3>
+                    <p class="company-name">Issued by: Duke University, Coursera (2020)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Electronic Systems and PCB Design</h3>
+                    <p class="company-name">Issued by: IEEE AESS, BRAC University SB Chapter (2022)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Mission Oz 2022</h3>
+                    <p class="company-name">Issued by: Space Teams International, USA (2022)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>How Sensors are Making Better Urban Environment</h3>
+                    <p class="company-name">Issued by: IEEE Innovation at Work, PDH (2021)</p>
+                </div>
+                <!-- Add other certificates similarly -->
+                <!-- ... Rest of the certificates ... -->
+            </div>
+        </section>
+
+        <!-- Honors & Awards Section -->
+        <section>
+            <h2>Honors & Awards</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>16th in University Rover Challenge 2023</h3>
+                    <p class="company-name">Issued by: The Mars Society, Utah, USA</p>
+                </div>
+                <div class="skill-category">
+                    <h3>1st in the National Round of KIBO Robot Programming Challenge 2022</h3>
+                    <p class="company-name">Issued by: Japan Aerospace Exploration Agency (JAXA), Tokyo, Japan</p>
+                </div>
+                <div class="skill-category">
+                    <h3>9th in International Rover Challenge 2023</h3>
+                    <p class="company-name">Issued by: Space Robotics Society, Bengaluru, India</p>
+                </div>
+                <div class="skill-category">
+                    <h3>21st in International Rover Design Challenge 2022</h3>
+                    <p class="company-name">Issued by: Space Robotics Society, Bengaluru, India</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Crew Award in the KIBO Robot Programming Challenge 2022</h3>
+                    <p class="company-name">Issued by: Japan Aerospace Exploration Agency (JAXA), Tokyo, Japan</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Champion of AUST Rover Challenge 2022</h3>
+                    <p class="company-name">Issued by: AUST Robotics Club, Dhaka, Bangladesh</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Dean's List</h3>
+                    <p class="company-name">Associated with: BRAC University, Dhaka, Bangladesh</p>
+                </div>
+                <div class="skill-category">
+                    <h3>VC's List</h3>
+                    <p class="company-name">Associated with: BRAC University, Dhaka, Bangladesh</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section>
+            <h2>References</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Roberto Fratello</h3>
+                    <p class="company-name">Tech Lead, Medical Support/Sa.Ni.Corporate Srl</p>
+                    <p>Email: <a href="mailto:roberto.fratello2@gmail.com">roberto.fratello2@gmail.com</a></p>
+                    <p>Phone: +393405317726</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Salman Ibne Eunus</h3>
+                    <p class="company-name">Chief Educational Instructor, The AI Educator (Formerly Research Assistant at Genofax)</p>
+                    <p>Email: <a href="mailto:salmaneunus27@gmail.com">salmaneunus27@gmail.com</a></p>
+                    <p>Phone: +8801746208374</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Dr. Md. Khalilur Rhaman, PhD</h3>
+                    <p class="company-name">Professor, CSE Department, BRAC University, Dhaka, Bangladesh</p>
+                    <p>Email: <a href="mailto:khalilur@bracu.ac.bd">khalilur@bracu.ac.bd</a></p>
+                    <p>Phone: +880-1752-042223</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Dr. Md. Golam Rabiul Alam</h3>
+                    <p class="company-name">Professor, Dept. of Computer Science and Engineering, BRAC University, Dhaka, Bangladesh</p>
+                    <p>Email: <a href="mailto:rabiul.alam@bracu.ac.bd">rabiul.alam@bracu.ac.bd</a></p>
+                    <p>Tel: +8809617445063</p>
+                    <p>Mobile: +8801797347635</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Last updated: January 2025</p>
+        </footer>
+    </div>
+
+    <a href="index.html" 
+       class="home-floating"
+       aria-label="Home">
+        <i data-lucide="home"></i>
+    </a>
+
+    <a href="https://www.nekosaif.com/CV_of_Mollah_Md_Saif.pdf" 
+       class="download-floating"
+       target="_blank"
+       download="CV_of_Mollah_Md_Saif.pdf"
+       aria-label="Download CV">
+        <i data-lucide="download"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.474.0/dist/umd/lucide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
