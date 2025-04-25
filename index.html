@@ -11,40 +11,54 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            /* Changed background to match CV */
+            background-color: #f3f4f6;
+            font-family: system-ui, -apple-system, sans-serif; /* Match CV font */
             margin: 0;
             overflow: hidden;
         }
         .navbar {
             width: 100%;
-            background-color: #222;
-            padding: 10px 0;
+            background-color: #222; /* Keeping navbar dark */
+            padding: 15px 0; /* Slightly more padding */
             display: flex;
             justify-content: center;
-            gap: 20px;
-            border-bottom: 3px solid #ff4500;
+            align-items: center; /* Vertically align items */
+            gap: 25px; /* Increased gap */
+            /* Changed border color to primary blue */
+            border-bottom: 3px solid #3b82f6;
             position: absolute;
             top: 0;
             left: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added subtle shadow */
         }
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid #ff4500;
-            border-radius: 8px;
-            transition: 0.3s;
+            font-size: 1.1em; /* Adjusted size */
+            padding: 8px 18px; /* Adjusted padding */
+            /* Changed border color to primary blue */
+            border: 2px solid #3b82f6;
+            border-radius: 5px; /* Slightly less rounded */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition */
         }
-        .navbar a:first-child {
+        .navbar a.brand { /* Added class for the brand/name link */
             font-weight: bold;
-            font-size: 1.5em;
+            font-size: 1.4em; /* Adjusted size */
+            border: none; /* Removed border for brand link */
+            padding: 8px 10px; /* Different padding */
+            color: #ffffff; /* White color for brand */
         }
-        .navbar a:hover {
-            background-color: #ff8457;
+        .navbar a.brand:hover {
+            background-color: transparent; /* No background change on hover */
+            color: #cccccc; /* Slight fade on hover */
+        }
+
+        .navbar a:not(.brand):hover { /* Target only non-brand links for hover */
+            /* Changed hover background to primary blue */
+            background-color: #3b82f6;
             color: white;
-            border-color: white;
+            border-color: #ffffff; /* White border on hover */
         }
         .container {
             display: flex;
@@ -59,21 +73,46 @@
         .message {
             font-size: 2em;
             font-weight: bold;
-            color: #333;
-            animation: blink 1s infinite alternate;
+            /* Changed text color to match CV main text */
+            color: #1f2937;
+            animation: blink 1.5s infinite alternate; /* Slightly slower blink */
+            background-color: rgba(255, 255, 255, 0.8); /* Added subtle background to message */
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         @keyframes blink {
             from { opacity: 1; }
-            to { opacity: 0.5; }
+            to { opacity: 0.6; } /* Less drastic blink */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .navbar {
+                gap: 10px; /* Reduce gap */
+                padding: 10px 0;
+                justify-content: space-around; /* Spread links out more */
+            }
+            .navbar a {
+                font-size: 1em;
+                padding: 6px 12px;
+            }
+             .navbar a.brand {
+                font-size: 1.2em;
+                padding: 6px 8px;
+             }
+             .message {
+                font-size: 1.5em;
+             }
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="index.html">Mollah Md Saif</a>
+        <a href="index.html" class="brand">Mollah Md Saif</a>
         <a href="cv.html">CV</a>
         <a href="projects.html">Projects</a>
-    </div>
+        </div>
     <div class="container">
         <div class="message">🚧 Under Construction 🚧</div>
     </div>
