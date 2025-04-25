@@ -3,106 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
+    <title>Under Construction - Mollah Md Saif</title>
+    <link href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js">
     <style>
         body {
             display: flex;
+            /* Keep vertical flex for overall structure */
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            /* Changed background to match CV */
+            /* Remove justify-content: center to allow natural flow */
+            /* justify-content: center; */
+            min-height: 100vh; /* Use min-height */
             background-color: #f3f4f6;
-            font-family: system-ui, -apple-system, sans-serif; /* Match CV font */
+            font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
-            overflow: hidden;
+            overflow-y: auto; /* Allow scrolling if content exceeds viewport */
         }
         .navbar {
             width: 100%;
-            background-color: #222; /* Keeping navbar dark */
-            padding: 15px 0; /* Slightly more padding */
+            background-color: #222;
+            padding: 15px 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* Vertically align items */
-            gap: 25px; /* Increased gap */
-            /* Changed border color to primary blue */
+            align-items: center;
+            gap: 25px;
             border-bottom: 3px solid #3b82f6;
-            position: absolute;
+            /* position: absolute; */ /* Changed to relative/sticky for better flow */
+            /* top: 0; */
+            /* left: 0; */
+            position: sticky; /* Make navbar sticky */
             top: 0;
-            left: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added subtle shadow */
+            z-index: 100; /* Ensure navbar stays on top */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 1.1em; /* Adjusted size */
-            padding: 8px 18px; /* Adjusted padding */
-            /* Changed border color to primary blue */
+            font-size: 1.1em;
+            padding: 8px 18px;
             border: 2px solid #3b82f6;
-            border-radius: 5px; /* Slightly less rounded */
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
-        .navbar a.brand { /* Added class for the brand/name link */
+        .navbar a.brand {
             font-weight: bold;
-            font-size: 1.4em; /* Adjusted size */
-            border: none; /* Removed border for brand link */
-            padding: 8px 10px; /* Different padding */
-            color: #ffffff; /* White color for brand */
+            font-size: 1.4em;
+            border: none;
+            padding: 8px 10px;
+            color: #ffffff;
         }
         .navbar a.brand:hover {
-            background-color: transparent; /* No background change on hover */
-            color: #cccccc; /* Slight fade on hover */
+            background-color: transparent;
+            color: #cccccc;
         }
-
-        .navbar a:not(.brand):hover { /* Target only non-brand links for hover */
-            /* Changed hover background to primary blue */
+        .navbar a:not(.brand):hover {
             background-color: #3b82f6;
             color: white;
-            border-color: #ffffff; /* White border on hover */
+            border-color: #ffffff;
         }
-        .container {
+
+        .main-content { /* Added wrapper for content below navbar */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            justify-content: center;
+            flex-grow: 1; /* Allow content to take remaining space */
+            width: 100%;
+            padding: 20px; /* Add padding */
+            margin-top: 80px; /* Adjust based on navbar height */
             text-align: center;
         }
+
         .message {
             font-size: 2em;
             font-weight: bold;
-            /* Changed text color to match CV main text */
             color: #1f2937;
-            animation: blink 1.5s infinite alternate; /* Slightly slower blink */
-            background-color: rgba(255, 255, 255, 0.8); /* Added subtle background to message */
+            animation: blink 1.5s infinite alternate;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 15px 30px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px; /* Add space below the message */
         }
         @keyframes blink {
             from { opacity: 1; }
-            to { opacity: 0.6; } /* Less drastic blink */
+            to { opacity: 0.6; }
         }
 
+        /* Styles for the new links section */
+        .links-section {
+            margin-top: 2rem; /* Space above the section */
+            padding: 1rem;
+            /* background-color: #ffffff; */ /* Optional background */
+            /* border-radius: 8px; */
+            /* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */
+        }
+
+        .links-section p {
+            font-size: 1.1em;
+            color: #4b5563; /* Medium gray text */
+            margin-bottom: 1.5rem; /* Space below the text */
+        }
+
+        .page-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem; /* Space between link buttons */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        .page-links a {
+            display: inline-flex; /* Use inline-flex for icon alignment */
+            align-items: center; /* Align icon and text */
+            gap: 0.5rem; /* Space between icon and text */
+            background-color: #3b82f6; /* Primary blue background */
+            color: white;
+            padding: 10px 25px; /* Button padding */
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            border: 2px solid transparent;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-links a:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .page-links a i { /* Style for Lucide icons */
+            width: 1.1em; /* Icon size */
+            height: 1.1em;
+            stroke-width: 2.5; /* Adjust stroke width if needed */
+        }
+
+
         /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-content {
+                 margin-top: 70px; /* Adjust margin */
+            }
+             .message {
+                font-size: 1.8em;
+             }
+             .links-section p {
+                 font-size: 1em;
+             }
+             .page-links a {
+                 font-size: 1em;
+                 padding: 8px 20px;
+             }
+        }
+
         @media (max-width: 600px) {
             .navbar {
-                gap: 10px; /* Reduce gap */
+                gap: 10px;
                 padding: 10px 0;
-                justify-content: space-around; /* Spread links out more */
+                justify-content: space-around;
             }
             .navbar a {
-                font-size: 1em;
-                padding: 6px 12px;
+                font-size: 0.9em; /* Smaller font on mobile */
+                padding: 6px 10px; /* Adjust padding */
             }
              .navbar a.brand {
-                font-size: 1.2em;
+                font-size: 1.1em;
                 padding: 6px 8px;
              }
+             .main-content {
+                 margin-top: 60px; /* Further adjust margin */
+             }
              .message {
-                font-size: 1.5em;
+                font-size: 1.4em;
+                padding: 10px 20px;
+             }
+             .links-section p {
+                font-size: 0.95em;
+             }
+             .page-links {
+                flex-direction: column; /* Stack links vertically */
+                gap: 1rem; /* Adjust gap for vertical layout */
+             }
+             .page-links a {
+                 font-size: 1em;
+                 width: 80%; /* Make buttons wider */
+                 max-width: 250px; /* Max width */
+                 justify-content: center; /* Center content in button */
              }
         }
     </style>
@@ -112,9 +201,27 @@
         <a href="index.html" class="brand">Mollah Md Saif</a>
         <a href="cv.html">CV</a>
         <a href="projects.html">Projects</a>
-        </div>
-    <div class="container">
-        <div class="message">🚧 Under Construction 🚧</div>
     </div>
+
+    <div class="main-content">
+        <div class="message">🚧 Under Construction 🚧</div>
+
+        <div class="links-section">
+            <p>Meanwhile, you can access:</p>
+            <div class="page-links">
+                <a href="cv.html">
+                    <i data-lucide="file-text"></i> CV
+                </a>
+                <a href="projects.html">
+                    <i data-lucide="lightbulb"></i> Projects
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
 </body>
 </html>
